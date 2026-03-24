@@ -20,3 +20,14 @@ const showCurrentPage = (action) => {
 	console.log(`Top back page: ${backTop}`);
 	console.log(`Top next page: ${nextTop}`);
 };
+
+const newPage = page => {
+	backPages.push(currentPage);
+	currentPage = page;
+
+	while (!nextPages.isEmpty()) {
+		nextPages.pop();
+	}
+
+	showCurrentPage(`New page: ${page}`);
+};
