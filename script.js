@@ -31,3 +31,23 @@ const newPage = page => {
 
 	showCurrentPage(`New page: ${page}`);
 };
+
+const backPage = () => {
+    if (!backPages.isEmpty()) {
+        nextPages.push(currentPage);
+        currentPage = backPages.pop();
+        showCurrentPage('Back');
+    } else {
+        console.log('\nNo pages to go back to.');
+    }
+};
+
+const nextPage = () => {
+    if (!nextPages.isEmpty()) {
+        backPages.push(currentPage);
+        currentPage = nextPages.pop();
+        showCurrentPage('Next');
+    } else {
+        console.log('\nNo pages to go forward to.');
+    }
+};
