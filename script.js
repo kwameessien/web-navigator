@@ -51,3 +51,12 @@ const nextPage = () => {
         console.log('\nNo pages to go forward to.');
     }
 };
+
+/*
+ * The following strings are used to prompt the user
+ */
+const baseInfo = '\nEnter a url';
+const backInfo = 'B|b for back page';
+const nextInfo = 'N|n for next page';
+const quitInfo = 'Q|q for quit';
+const question = 'Where would you like to go today? '
