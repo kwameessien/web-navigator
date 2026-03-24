@@ -60,3 +60,34 @@ const backInfo = 'B|b for back page';
 const nextInfo = 'N|n for next page';
 const quitInfo = 'Q|q for quit';
 const question = 'Where would you like to go today? '
+
+// ------------------------------
+// User Interface Part 1
+// ------------------------------
+
+showCurrentPage('Default');
+
+let finish = false;
+let showBack = false;
+let showNext = false;
+
+while (finish === false) {
+    let instructions = baseInfo;
+
+    if (!backPages.isEmpty()) {
+        instructions += `, ${backInfo}`;
+        showBack = true;
+    } else {
+        showBack = false;
+    }
+
+    if (!nextPages.isEmpty()) {
+        instructions += `, ${nextInfo}`;
+        showNext = true;
+    } else {
+        showNext = false;
+    }
+
+    instructions += `, ${quitInfo}`;
+    console.log(instructions);
+}
