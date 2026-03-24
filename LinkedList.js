@@ -34,6 +34,38 @@ class LinkedList {
             this.head = removedHead.getNextNode();
             return removedHead.data;
         }
+
+        printList() {
+            let currentNode = this.head;
+            let ouput = '<head> ';
+            while (currentNode !== null) {
+                ouput += currentNode.data + ' ';
+                currentNode = currentNode.getNextNode();
+            }
+            ouput += '<tail>';
+            console.log(ouput);
+        }
+
+        findNodeIteratively(data) {
+            let currentNode = this.head;
+            while (currentNode !== null) {
+                if (currentNode.data === data) {
+                    return currentNode;
+                }
+                currentNode = currentNode.getNextNode();
+            }
+            return null;
+        }
+
+        findNodeRecursively(data, currentNode = this.head) {
+            if (currentNode === null) {
+                return null;
+            }
+            if (currentNode.data === data) {
+                return currentNode;
+            }
+            return this.findNodeRecursively(data, currentNode.next);
+        }
 }
 
 module.exports = LinkedList;
