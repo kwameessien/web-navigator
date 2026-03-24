@@ -90,4 +90,30 @@ while (finish === false) {
 
     instructions += `, ${quitInfo}`;
     console.log(instructions);
+
+    // ------------------------------
+    // User Interface Part 2
+    // ------------------------------
+
+    const answer = prompt(question);
+    const lowerCaseAnswer = answer.toLowerCase();
+
+    if (lowerCaseAnswer === 'b') {
+        if (showBack) {
+            backPage();
+        } else {
+            console.log('\nCannot go back right now. There is no previous page.');
+        }
+    } else if (lowerCaseAnswer === 'n') {
+        if (showNext) {
+            nextPage();
+        } else {
+            console.log('\nCannot go forward right now. There is no next page.');
+        }
+    } else if (lowerCaseAnswer === 'q') {
+        finish = true;
+        console.log('\nQuitting browser history navigation. Goodbye!');
+    } else if (lowerCaseAnswer !== 'q') {
+        newPage(answer);
+    }
 }
